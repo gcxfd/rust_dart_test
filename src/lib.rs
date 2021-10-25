@@ -27,5 +27,5 @@ pub unsafe extern "C" fn gcBind(handle: Dart_Handle) {
   let mut test = "test String".to_string();
   let peer = &mut test as *mut _ as *mut std::ffi::c_void;
 
-  Dart_NewFinalizableHandle_DL(handle, peer, 888, Some(do_free));
+  Dart_NewFinalizableHandle_DL(handle, peer, test.len(), Some(do_free));
 }
