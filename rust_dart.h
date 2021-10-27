@@ -1,10 +1,7 @@
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdlib.h>
-
-extern uintptr_t Dart_InitializeApiDL(void *obj);
+#include "dart_sdk/dart_native_api.h"
 
 
 uintptr_t initDart(void *obj);
 
+
+void gcBind(Dart_Handle handle);

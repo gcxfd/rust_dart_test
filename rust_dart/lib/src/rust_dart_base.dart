@@ -5,7 +5,8 @@ import 'dart:math';
 import './cpp.dart' show NativeLibrary;
 
 void init() {
-  final fp = '/Users/z/rmw/rust_dart/target/debug/librust_dart.dylib';
+  final fp =
+      '/Users/z/Downloads/rust_dart_test/target/debug/librust_dart.dylib';
   final so = NativeLibrary(DynamicLibrary.open(fp));
   so.initDart(NativeApi.initializeApiDLData);
   print(so);

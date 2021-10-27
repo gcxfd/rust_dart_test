@@ -24,8 +24,7 @@ pub unsafe extern "C" fn do_free(isolate_callback_data: *mut c_void, peer: *mut 
 
 #[no_mangle]
 pub unsafe extern "C" fn gcBind(handle: Dart_Handle) {
-  let mut test = "test String".to_string();
-  let peer = &mut test as *mut _ as *mut std::ffi::c_void;
-
-  Dart_NewFinalizableHandle_DL(handle, peer, test.len(), Some(do_free));
+  let test: [u8; 2] = [1, 2];
+  let peer = Box::into_raw(Box::new(test)) as *mut std::ffi::c_void;
+  Dart_NewFinalizableHandle_DL(handle, peer, 2, Some(do_free));
 }
